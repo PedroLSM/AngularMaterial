@@ -1,0 +1,61 @@
+  <form class="sign-up" #f="ngForm" (ngSubmit)="submit(f)" >
+
+    <mat-form-field>
+
+      <input 
+      type="email" 
+      name="email" 
+      ngModel
+      required
+      email
+      #email="ngModel" 
+      matInput 
+      placeholder="Digite seu email">
+
+      <mat-error *ngIf="email.errors?.required">email is required</mat-error>
+      <mat-error *ngIf="email.errors?.email">email is invalid</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Max 6 characters">
+
+      <input 
+      type="password"
+      ngModel 
+      required
+      minlength="6"
+      name="senha" 
+      #senha="ngModel"
+      matInput 
+      placeholder="Digite sua senha">
+
+      <mat-hint align="end">{{ senha.value?.length || 0 }} / 6</mat-hint>
+      <mat-error *ngIf="email.invalid">password is required</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Precisa ter 18 anos.">
+      <input 
+      matInput 
+      name="data" 
+      ngModel 
+      required
+      #data="ngModel" 
+      [matDatepicker]="picker"
+      [max]="minDate" 
+      placeholder="Data de Nascimento">
+
+      <mat-error *ngIf="email.invalid">data is required</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-checkbox 
+    name="acordo"
+    ngModel 
+    required
+    #acordo="ngModel">Concorda com os termos.</mat-checkbox>
+
+    <button mat-raised-button color="primary" [disabled]="f.invalid">Sign-up</button>
+
+  </form>

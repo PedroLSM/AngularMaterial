@@ -1,0 +1,29 @@
+<div fxHide.gt-xs>
+    <button mat-icon-button (click)="ToggleSidenav()">
+        <mat-icon>menu</mat-icon>
+    </button>
+</div>
+
+<mat-nav-list>
+    <mat-list-item>
+        <a matLine routerLink="/">
+            LOGO
+        </a>
+    </mat-list-item>
+</mat-nav-list>
+
+<div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+    <mat-nav-list fxLayout>
+        <mat-list-item>
+            <a matLine routerLink="/signup">Signup</a>
+        </mat-list-item>
+
+        <mat-list-item>
+            <a matLine routerLink="/login">Login</a>
+        </mat-list-item>
+
+        <mat-list-item>
+            <a matLine routerLink="/training">Training</a>
+        </mat-list-item>
+    </mat-nav-list>
+</div>

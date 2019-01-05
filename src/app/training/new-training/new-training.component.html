@@ -1,0 +1,38 @@
+<section class="new-exercice" fxLayout="row" fxLayoutAlign="center">
+
+  <mat-card fxFlex="400px">
+    <mat-card-header>
+      <mat-card-title>
+        <div>
+          Time to start a workout
+        </div>
+      </mat-card-title>
+      <mat-icon fxFlex fxLayoutAlign="end end">
+          fitness_center
+      </mat-icon>
+    </mat-card-header>
+
+    <mat-card-content fxLayoutAlign="center center">
+
+      <mat-form-field>
+        <mat-select id="training" name="training" ngModel #training required placeholder="Choose Training" >
+          <mat-option [value]="t.id" *ngFor="let t of trainings">
+              {{ t.value }}
+              <!-- <mat-icon *ngIf="showIcon">
+                {{ t.icon }}
+              </mat-icon> -->
+          </mat-option>
+        </mat-select>
+        <mat-error >
+          Você esqueceu de escolher o treino.
+        </mat-error>
+      </mat-form-field>
+
+    </mat-card-content>
+
+    <mat-card-actions fxLayoutAlign="center center">
+      <button mat-stroked-button color="primary" (click)="onStartTraining(training)">Start</button>
+    </mat-card-actions>
+  </mat-card>
+
+</section>

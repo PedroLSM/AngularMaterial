@@ -1,0 +1,35 @@
+<form class="login" [formGroup]="form" (ngSubmit)="submit()" >
+
+    <mat-form-field>
+
+      <input 
+      type="email"
+      name="email"
+      formControlName="email"
+      matInput 
+      required
+      placeholder="Digite seu email">
+
+      <mat-error *ngIf="email?.hasError('required')"> email is required</mat-error>
+      <mat-error *ngIf="email?.hasError('email')"> email is invalid</mat-error>
+      
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Max 6 characters">
+
+      <input 
+      type="password"
+      name="senha" 
+      formControlName="senha"
+      matInput 
+      required
+      placeholder="Digite sua senha">
+
+      <mat-hint align="end">{{ senha?.value?.length || 0 }} / 6</mat-hint>
+      <mat-error *ngIf="senha?.hasError('required')"> password is required</mat-error>
+
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="form.invalid">Submit</button>
+
+  </form>

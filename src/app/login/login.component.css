@@ -1,0 +1,13 @@
+.login{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+button{
+    margin-top: 10px;
+}
+
+mat-form-field{
+    width: 300px;
+}
